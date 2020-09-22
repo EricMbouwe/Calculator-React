@@ -1,9 +1,9 @@
-import React from 'react';
-import Button from './Button';
+import React from "react";
+import Button from "./Button";
 
 export default function ButtonPanel() {
   return (
-    <div>
+    <div style={styles}>
       <div className="Group-1">
         <Button name="AC" />
         <Button name="+/-" />
@@ -36,3 +36,8 @@ export default function ButtonPanel() {
     </div>
   );
 }
+
+const styles = {
+  display: "flex",
+  color: "#eee",
+};

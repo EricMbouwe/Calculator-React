@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Display({ result }) {
-  return <div>{result}</div>;
+  return <div style={styles}>{result}</div>;
 }
 
 Display.defaultProps = {
@@ -12,3 +12,10 @@ Display.defaultProps = {
 Display.propTypes = {
   result: PropTypes.string,
 };
+
+const styles = {
+  display: "flex",
+  color: "red"
+}
+
+/**{{color: "#eee"}} */
