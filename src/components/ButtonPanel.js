@@ -40,12 +40,13 @@ export default function ButtonPanel() {
 const Panelstyles = {
   display: "flex",
   border: "4px solid yellow",
-  flexWrap: "wrap"
+  flexWrap: "wrap",
 };
 
 const groupStyle = {
   display: "flex",
   width: "100%",
   height: 100,
-  border: "4px solid green"
-}
+  border: "4px solid green",
+  margin: 2,
+};
