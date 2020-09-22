@@ -16,11 +16,12 @@ Display.propTypes = {
 const styles = {
   display: "flex",
   color: "#fff",
+  justifyContent: "flex-end",
+  alignItems: "flex-end",
   fontWeight: "bold",
-  textAlign: "right",
-  padding: 20,
+  padding: 10,
   backgroundColor: "#ccc",
-  height: 100
-}
+  height: 100,
+};
 
 /**{{color: "#eee"}} */

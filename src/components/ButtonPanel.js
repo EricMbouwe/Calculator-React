@@ -3,32 +3,32 @@ import Button from "./Button";
 
 export default function ButtonPanel() {
   return (
-    <div style={styles}>
-      <div className="Group-1">
+    <div style={Panelstyles}>
+      <div style={groupStyle} className="Group-1">
         <Button name="AC" />
         <Button name="+/-" />
         <Button name="%" />
         <Button name="÷" />
       </div>
-      <div className="Group-2">
+      <div style={groupStyle} className="Group-2">
         <Button name="7" />
         <Button name="8" />
         <Button name="9" />
-        <Button name="X" />
+        <Button name="x" />
       </div>
-      <div className="Group-3">
+      <div style={groupStyle} className="Group-3">
         <Button name="4" />
         <Button name="5" />
         <Button name="6" />
         <Button name="-" />
       </div>
-      <div className="Group-4">
+      <div style={groupStyle} className="Group-4">
         <Button name="1" />
         <Button name="2" />
         <Button name="3" />
         <Button name="+" />
       </div>
-      <div className="Group-5">
+      <div style={groupStyle} className="Group-5">
         <Button name="0" />
         <Button name="." />
         <Button name="=" />
@@ -37,7 +37,15 @@ export default function ButtonPanel() {
   );
 }
 
-const styles = {
+const Panelstyles = {
   display: "flex",
-  color: "#eee",
+  border: "4px solid yellow",
+  flexWrap: "wrap"
 };
+
+const groupStyle = {
+  display: "flex",
+  width: "100%",
+  height: 100,
+  border: "4px solid green"
+}
