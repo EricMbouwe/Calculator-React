@@ -15,7 +15,12 @@ Display.propTypes = {
 
 const styles = {
   display: "flex",
-  color: "red"
+  color: "#fff",
+  fontWeight: "bold",
+  textAlign: "right",
+  padding: 20,
+  backgroundColor: "#ccc",
+  height: 100
 }
 
 /**{{color: "#eee"}} */
