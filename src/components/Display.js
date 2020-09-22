@@ -7,10 +7,9 @@ export default function Display({ result }) {
     color: '#fff',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
-    fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 40,
     padding: 10,
-    backgroundColor: '#ccc',
+    backgroundColor: '#95a5a6',
     height: 100,
   };
 
@@ -18,7 +17,7 @@ export default function Display({ result }) {
 }
 
 Display.defaultProps = {
-  result: 0,
+  result: '0',
 };
 
 Display.propTypes = {

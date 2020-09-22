@@ -7,25 +7,26 @@ export default function Button({ name, color, wide }) {
     justifyContent: 'center',
     alignItems: 'center',
     width: '25%',
-    backgroundColor: '#ffa502',
-    margin: 4,
     fontSize: 20,
-    fontWeight: 'bold',
-    border: '2px solid #000',
+    border: '1px solid lightgray',
   };
 
   if (wide) {
     buttonStyle.width = '50%';
   }
-  if (color) {
-    buttonStyle.backgroundColor = color;
-  }
+
+  buttonStyle.backgroundColor = color;
 
   return <div style={buttonStyle}>{name}</div>;
 }
 
+Button.defaultProps = {
+  color: 'orange',
+  wide: false,
+};
+
 Button.propTypes = {
   name: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
-  wide: PropTypes.bool.isRequired,
+  color: PropTypes.string,
+  wide: PropTypes.bool,
 };

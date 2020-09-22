@@ -18,5 +18,4 @@ body {
   display: flex;
   flex-direction: column;
   width: 700px;
-  border: 4px solid #3742fa;
 }
