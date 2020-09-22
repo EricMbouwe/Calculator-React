@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Button({ name, color, wide }) {
   const buttonStyle = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "25%",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '25%',
     fontSize: 20,
-    border: "1px solid lightgray",
+    border: '1px solid lightgray',
   };
 
   if (wide) {
-    buttonStyle.width = "50%";
+    buttonStyle.width = '50%';
   }
 
   buttonStyle.backgroundColor = color;
@@ -21,7 +21,7 @@ export default function Button({ name, color, wide }) {
 }
 
 Button.defaultProps = {
-  color: "orange",
+  color: 'orange',
   wide: false,
 };
 
