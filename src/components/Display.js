@@ -8,8 +8,8 @@ export default function Display({ result }) {
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
     fontWeight: 'bold',
-    fontSize: 30,
-    padding: 10,
+    fontSize: 40,
+    padding: 20,
     backgroundColor: '#ccc',
     height: 100,
   };
@@ -18,7 +18,7 @@ export default function Display({ result }) {
 }
 
 Display.defaultProps = {
-  result: 0,
+  result: '0',
 };
 
 Display.propTypes = {

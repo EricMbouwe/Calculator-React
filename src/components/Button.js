@@ -7,11 +7,10 @@ export default function Button({ name, color, wide }) {
     justifyContent: 'center',
     alignItems: 'center',
     width: '25%',
-    backgroundColor: '#ffa502',
-    margin: 4,
+    backgroundColor: '#95a5a6',
     fontSize: 20,
     fontWeight: 'bold',
-    border: '2px solid #000',
+    border: '1px solid #fff',
   };
 
   if (wide) {
@@ -25,7 +24,13 @@ export default function Button({ name, color, wide }) {
 }
 
 Button.propTypes = {
-  name: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
-  wide: PropTypes.bool.isRequired,
+  name: PropTypes.string,
+  color: PropTypes.string,
+  wide: PropTypes.bool,
+};
+
+Button.defaultProps = {
+  name: '',
+  color: "#95a5a6",
+  wide: false,
 };
