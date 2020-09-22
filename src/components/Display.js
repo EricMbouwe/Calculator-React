@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Display(props) {
-  return <div>{props.result}</div>;
+export default function Display({ result }) {
+  return <div>{result}</div>;
 }
 
 Display.defaultProps = {
@@ -10,5 +10,5 @@ Display.defaultProps = {
 };
 
 Display.propTypes = {
-  result: PropTypes.string.isRequired,
+  result: PropTypes.string,
 };
