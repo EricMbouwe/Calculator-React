@@ -6,7 +6,7 @@ import "../App.css";
 export default function App() {
   return (
     <div className="App">
-      <Display />
+      <Display result={"384"} />
       <ButtonPanel />
     </div>
   );
