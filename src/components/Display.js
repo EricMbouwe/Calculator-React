@@ -12,6 +12,7 @@ export default function Display({ result }) {
     padding: 20,
     backgroundColor: '#ccc',
     height: 100,
+    border: '1px solid #fff',
   };
 
   return <div style={styles}>{result}</div>;
