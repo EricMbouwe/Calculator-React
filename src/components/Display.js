@@ -19,9 +19,8 @@ const styles = {
   justifyContent: "flex-end",
   alignItems: "flex-end",
   fontWeight: "bold",
+  fontSize: 30,
   padding: 10,
   backgroundColor: "#ccc",
   height: 100,
 };
-
-/**{{color: "#eee"}} */
