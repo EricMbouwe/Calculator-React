@@ -2,7 +2,7 @@ This is a simple calculator for basics calculations implemented with React compo
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-![screenshot](public/calculator.png)
+![screenshot](public/calculator1.png)
 
 This app was built with JavaScript, HTML and CSS
 
