@@ -1,24 +1,34 @@
 import React from "react";
 import Display from "./Display";
 import ButtonPanel from "./ButtonPanel";
-// eslint-disable-next-line
 import calculate from "../logic/calculate";
 import "../App.css";
 
 class App extends React.Component {
   constructor() {
+    super();
+
     this.state = {
-      total: null,
+      total: '0',
       next: null,
-      operation: null
-    }
+      operation: null,
+    };
   }
+
+  handleClick = (buttonName) => {
+    const calcData = calculate(this.state, buttonName);
+    this.setState({
+      total: calcData.total,
+      next: calcData.next,
+      operation: calcData.operation,
+    });
+  };
 
   render() {
     return (
       <div className="App">
-        <Display />
-        <ButtonPanel />
+        <Display result={this.state.total} />
+        <ButtonPanel clickHandler={this.handleClick} />
       </div>
     );
   }

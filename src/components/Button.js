@@ -1,27 +1,33 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-export default function Button({ name, color, wide }) {
+export default function Button({ name, color, wide, clickHandler }) {
   const buttonStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '25%',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     fontSize: 20,
-    border: '1px solid lightgray',
+    border: "1px solid lightgray",
   };
 
-  if (wide) {
-    buttonStyle.width = '50%';
-  }
+  wide ? (buttonStyle.width = "50%") : (buttonStyle.width = "25%");
 
   buttonStyle.backgroundColor = color;
 
-  return <div style={buttonStyle}>{name}</div>;
+  const handleClick = (buttonName) => {
+    console.log('clicked')
+    clickHandler(buttonName);
+  };
+
+  return (
+    <div style={buttonStyle} onClick={handleClick}>
+      {name}
+    </div>
+  );
 }
 
 Button.defaultProps = {
-  color: 'orange',
+  color: "orange",
   wide: false,
 };
 
