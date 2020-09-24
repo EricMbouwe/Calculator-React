@@ -1,19 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './Button';
 
 export default function ButtonPanel({ clickHandler }) {
   const Panelstyles = {
-    display: "flex",
-    flexWrap: "wrap",
+    display: 'flex',
+    flexWrap: 'wrap',
   };
 
   const groupStyle = {
-    display: "flex",
-    width: "100%",
+    display: 'flex',
+    width: '100%',
     height: 100,
   };
 
-  const handleClick = (buttonName) => {
+  const handleClick = buttonName => {
     clickHandler(buttonName);
   };
 
@@ -51,3 +52,7 @@ export default function ButtonPanel({ clickHandler }) {
     </div>
   );
 }
+
+ButtonPanel.propTypes = {
+  clickHandler: PropTypes.func.isRequired,
+};
