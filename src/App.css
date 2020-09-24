@@ -1,21 +1,11 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .App {
   display: flex;
   flex-direction: column;
-  width: 700px;
+  width: 100%;
+}
+
+@media screen and (min-width: 767px) {
+  .App {
+    max-width: 700px;
+  }
 }

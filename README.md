@@ -10,6 +10,8 @@ This app was built with:
 
 - React
 - JavaScript, HTML & CSS
+- Create-react-app
+- Big.js
 
 ## Live Demo
 
