@@ -1,4 +1,4 @@
-import Big from "big.js";
+import Big from 'big.js';
 
 export default function operate(numberOne, numberTwo, operation) {
   const num1 = Big(numberOne);
@@ -7,22 +7,26 @@ export default function operate(numberOne, numberTwo, operation) {
   let result;
 
   switch (operation) {
-    case "x":
+    case 'x':
       result = num1.times(num2).toFixed();
       break;
-    case "÷":
-      result = num1.div(num2).toFixed();
+    case '÷':
+      try {
+        result = num1.div(num2).toFixed();
+      } catch (error) {
+        result = 'E';
+      }
       break;
-    case "+":
+    case '+':
       result = num1.plus(num2).toFixed();
       break;
-    case "-":
+    case '-':
       result = num1.minus(num2).toFixed();
       break;
-    case "%":
-      result = num1.mod(num2).toFixed();
+    case '%':
+      result = num1.div(100).toFixed();
       break;
-    case "+/-":
+    case '+/-':
       result = num1.times(minusOne).toFixed();
       break;
     default:
