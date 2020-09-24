@@ -15,12 +15,13 @@ export default function Button({ name, color, wide, clickHandler }) {
   buttonStyle.backgroundColor = color;
 
   const handleClick = (buttonName) => {
-    console.log('clicked')
+    console.log("clicked");
+    console.log(buttonName);
     clickHandler(buttonName);
   };
 
   return (
-    <div style={buttonStyle} onClick={handleClick}>
+    <div style={buttonStyle} onClick={() => handleClick(name)}>
       {name}
     </div>
   );
