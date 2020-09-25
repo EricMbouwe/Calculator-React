@@ -30,6 +30,7 @@ export default function operate(numberOne, numberTwo, operation) {
       result = num1.times(minusOne).toFixed();
       break;
     default:
+      result = '0';
       break;
   }
 
