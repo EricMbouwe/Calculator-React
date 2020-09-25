@@ -10,6 +10,7 @@ export default function Button({
     alignItems: 'center',
     fontSize: 20,
     border: '1px solid lightgray',
+    cursor: 'pointer',
   };
 
   wide ? (buttonStyle.width = '50%') : (buttonStyle.width = '25%');
@@ -17,8 +18,6 @@ export default function Button({
   buttonStyle.backgroundColor = color;
 
   const handleClick = buttonName => {
-    console.log('clicked');
-    console.log(buttonName);
     clickHandler(buttonName);
   };
 

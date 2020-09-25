@@ -1,7 +1,7 @@
 import React from 'react';
 import Display from './Display';
 import ButtonPanel from './ButtonPanel';
-// import calculate from "../logic/calculate";
+import calculate from '../logic/calculate';
 import '../App.css';
 
 class App extends React.Component {
@@ -16,26 +16,32 @@ class App extends React.Component {
   }
 
   handleClick(buttonName) {
-    // const calcData = calculate(this.state, buttonName);
-    // this.setState({
-    //   total: calcData.total,
-    //   next: calcData.next,
-    //   operation: calcData.operation,
-    // });
-    // this.setState((state) => ({
-    //   total: state.total + 1,
-    //   next: state.total,
-    //   operation: state.operation,
-    // }));
+    let calcData = { ...this.state };
 
-    console.log('clicked from APP');
+    if (calcData.total === 'E') {
+      calcData = calculate(calcData, 'AC');
+    } else {
+      calcData = calculate(calcData, buttonName);
+    }
+
+    this.setState({
+      total: calcData.total,
+      next: calcData.next,
+      operation: calcData.operation,
+    });
+
+    console.log(calcData);
   }
 
   render() {
     return (
       <div className="App">
-        <Display result={`${this.state.total}`} />
-        <ButtonPanel clickHandler={this.handleClick} />
+        <Display
+          operation={this.state.operation}
+          next={this.state.next}
+          result={this.state.total}
+        />
+        <ButtonPanel clickHandler={this.handleClick.bind(this)} />
       </div>
     );
   }
