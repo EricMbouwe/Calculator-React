@@ -1,5 +1,6 @@
 import operate from './operate';
 
+// eslint-disable-next-line
 export let inputs = [];
 
 export default function calculate(calcData, buttonName) {
@@ -41,12 +42,6 @@ export default function calculate(calcData, buttonName) {
     next = '0';
     inputs = [];
     operation = null;
-  }
-
-  if (buttonName === '.') {
-    if (total !== null && next !== null) {
-      total *= 1.1;
-    }
   }
 
   if (buttonName === '=') {

@@ -13,18 +13,26 @@ export default function Button({
     cursor: 'pointer',
   };
 
-  wide ? (buttonStyle.width = '50%') : (buttonStyle.width = '25%');
+  if (wide) {
+    buttonStyle.width = '50%';
+  } else {
+    buttonStyle.width = '25%';
+  }
 
   buttonStyle.backgroundColor = color;
 
-  const handleClick = buttonName => {
-    clickHandler(buttonName);
-  };
+  const handleClick = buttonName => clickHandler(buttonName);
 
   return (
-    <div style={buttonStyle} onClick={() => handleClick(name)}>
+    <span
+      role="button"
+      tabIndex="0"
+      style={buttonStyle}
+      onClick={() => handleClick(name)}
+      onKeyPress={handleClick}
+    >
       {name}
-    </div>
+    </span>
   );
 }
 

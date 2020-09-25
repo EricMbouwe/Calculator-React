@@ -14,9 +14,7 @@ export default function ButtonPanel({ clickHandler }) {
     height: 100,
   };
 
-  const handleClick = buttonName => {
-    clickHandler(buttonName);
-  };
+  const handleClick = buttonName => clickHandler(buttonName);
 
   return (
     <div style={Panelstyles}>
