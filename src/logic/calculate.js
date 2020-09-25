@@ -40,25 +40,16 @@ export default function calculate(calcData, buttonName) {
     operation = null;
   }
 
-  if (buttonName === '%') {
+  if (buttonName === "%" || buttonName === "+/-") {
     if (total) {
       total = operate(total, next, buttonName);
-      next = '0';
+      next = "0";
       inputs = [];
     } else if (next) {
       total = operate(next, next, buttonName);
-      next = '0';
+      next = "0";
       inputs = [];
     }
-  }
-
-  if (buttonName === '+/-') {
-    if (total !== null) {
-      total = operate(total, next, buttonName);
-    } else {
-      total = operate(next, total, buttonName);
-    }
-    inputs = [];
   }
 
   if (buttonName === '.') {
