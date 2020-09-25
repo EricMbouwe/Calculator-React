@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { inputs } from '../logic/calculate';
 
-export default function Display({ result, operation }) {
+export default function Display({ result, operation, next }) {
   const styles = {
     display: 'flex',
     justifyContent: 'center',
@@ -21,14 +20,12 @@ export default function Display({ result, operation }) {
     fontSize: '1.8em',
   };
 
-  // eslint-disable-next-line
-  const renderInputs = inputs.map((input, i) => <span key={i}>{input}</span>);
-
   return (
     <div style={styles}>
       <div>
         {operation}
-        {renderInputs}
+        <span> </span>
+        {next}
       </div>
       <div style={resultStyle}>{result}</div>
     </div>
@@ -38,9 +35,11 @@ export default function Display({ result, operation }) {
 Display.defaultProps = {
   result: '0',
   operation: null,
+  next: null,
 };
 
 Display.propTypes = {
   result: PropTypes.string,
+  next: PropTypes.string,
   operation: PropTypes.string,
 };

@@ -1,8 +1,5 @@
 import operate from './operate';
 
-// eslint-disable-next-line
-export let inputs = [];
-
 export default function calculate(calcData, buttonName) {
   let { total, next, operation } = calcData;
 
@@ -11,8 +8,7 @@ export default function calculate(calcData, buttonName) {
 
   numbers.forEach(number => {
     if (buttonName === number) {
-      inputs.push(number);
-      next = inputs.join('');
+      next += `${number}`;
     }
   });
 
@@ -23,12 +19,10 @@ export default function calculate(calcData, buttonName) {
         if (operator !== 'x' && operator !== '÷') {
           total = operate(total, next, operation);
           next = '0';
-          inputs = [];
         }
       } else {
         total = next;
         next = '0';
-        inputs = [];
       }
     }
   });
@@ -36,39 +30,29 @@ export default function calculate(calcData, buttonName) {
   if (buttonName === 'AC') {
     total = null;
     next = null;
-    inputs = [];
     operation = null;
   }
 
-  if (buttonName === "%" || buttonName === "+/-") {
+  if (buttonName === '%' || buttonName === '+/-') {
     if (total) {
       total = operate(total, next, buttonName);
-      next = "0";
-      inputs = [];
+      next = '0';
     } else if (next) {
       total = operate(next, next, buttonName);
-      next = "0";
-      inputs = [];
+      next = '0';
     }
   }
 
   if (buttonName === '.') {
-    if (total !== null) {
-      total = operate(total, next, buttonName);
-    } else {
-      total = operate(next, total, buttonName);
-    }
-    inputs = [];
+    next = `${next}.`;
   }
 
   if (buttonName === '=') {
     if (operation !== null) {
       total = operate(total, next, operation);
       next = '0';
-      inputs = [];
     } else if (next !== null) {
       total = next;
-      inputs = [];
     }
   }
 
