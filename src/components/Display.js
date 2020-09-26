@@ -35,7 +35,7 @@ export default function Display({ result, operation, next }) {
 Display.defaultProps = {
   result: '0',
   operation: null,
-  next: null,
+  next: '',
 };
 
 Display.propTypes = {

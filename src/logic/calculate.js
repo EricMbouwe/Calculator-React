@@ -8,21 +8,23 @@ export default function calculate(calcData, buttonName) {
 
   numbers.forEach(number => {
     if (buttonName === number) {
-      next += `${number}`;
+      if (next) {
+        next += number;
+      } else {
+        next = number;
+      }
     }
   });
 
   operators.forEach(operator => {
     if (buttonName === operator) {
       operation = buttonName;
-      if (total !== null) {
-        if (operator !== 'x' && operator !== '÷') {
-          total = operate(total, next, operation);
-          next = '0';
-        }
-      } else {
+      if (total !== null && next !== null) {
+        total = operate(total, next, operation);
+        next = null;
+      } else if (next) {
         total = next;
-        next = '0';
+        next = null;
       }
     }
   });
@@ -36,10 +38,8 @@ export default function calculate(calcData, buttonName) {
   if (buttonName === '%' || buttonName === '+/-') {
     if (total) {
       total = operate(total, next, buttonName);
-      next = '0';
     } else if (next) {
       total = operate(next, next, buttonName);
-      next = '0';
     }
   }
 
@@ -48,17 +48,14 @@ export default function calculate(calcData, buttonName) {
   }
 
   if (buttonName === '=') {
-    if (operation !== null) {
+    if (operation !== null && next) {
       total = operate(total, next, operation);
-      next = '0';
+      next = null;
     } else if (next !== null) {
       total = next;
+      next = null;
     }
   }
-
-  console.log(total);
-  console.log(next);
-  console.log(operation);
 
   return { total, next, operation };
 }
