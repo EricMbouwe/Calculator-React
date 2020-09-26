@@ -17,7 +17,7 @@ export default function calculate(calcData, buttonName) {
   });
 
   operators.forEach(operator => {
-    if (buttonName === operator) {
+    if (buttonName === operator && (total || next)) {
       operation = buttonName;
       if (total !== null && next !== null) {
         total = operate(total, next, operation);
@@ -37,10 +37,10 @@ export default function calculate(calcData, buttonName) {
 
   if (buttonName === '%' || buttonName === '+/-') {
     if (total) {
-      total = operate(total, next, buttonName);
+      total = operate(total, '0', buttonName);
       next = null;
     } else if (next) {
-      total = operate(next, next, buttonName);
+      total = operate(next, '0', buttonName);
       next = null;
     }
   }

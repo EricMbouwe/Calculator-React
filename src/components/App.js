@@ -18,15 +18,8 @@ class App extends React.Component {
   }
 
   handleClick(buttonName) {
-    let calcData = { ...this.state };
-
-    if (calcData.total === 'E') {
-      calcData = calculate(calcData, 'AC');
-    } else {
-      calcData = calculate(calcData, buttonName);
-    }
-
-    this.setState({ ...calcData });
+    const calcData = { ...this.state };
+    this.setState(calculate(calcData, buttonName));
   }
 
   render() {
