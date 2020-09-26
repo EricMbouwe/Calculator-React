@@ -13,12 +13,7 @@ export default function Button({
     cursor: 'pointer',
   };
 
-  if (wide) {
-    buttonStyle.width = '50%';
-  } else {
-    buttonStyle.width = '25%';
-  }
-
+  buttonStyle.width = wide ? '50%' : '25%';
   buttonStyle.backgroundColor = color;
 
   const handleClick = buttonName => clickHandler(buttonName);
