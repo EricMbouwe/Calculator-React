@@ -1,23 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Button({ name, color, wide }) {
+export default function Button({
+  name, color, wide, clickHandler,
+}) {
   const buttonStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '25%',
     fontSize: 20,
     border: '1px solid lightgray',
+    cursor: 'pointer',
   };
 
   if (wide) {
     buttonStyle.width = '50%';
+  } else {
+    buttonStyle.width = '25%';
   }
 
   buttonStyle.backgroundColor = color;
 
-  return <div style={buttonStyle}>{name}</div>;
+  const handleClick = buttonName => clickHandler(buttonName);
+
+  return (
+    <span
+      role="button"
+      tabIndex="0"
+      style={buttonStyle}
+      onClick={() => handleClick(name)}
+      onKeyPress={handleClick}
+    >
+      {name}
+    </span>
+  );
 }
 
 Button.defaultProps = {
@@ -29,4 +45,5 @@ Button.propTypes = {
   name: PropTypes.string.isRequired,
   color: PropTypes.string,
   wide: PropTypes.bool,
+  clickHandler: PropTypes.func.isRequired,
 };

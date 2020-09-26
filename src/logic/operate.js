@@ -24,12 +24,13 @@ export default function operate(numberOne, numberTwo, operation) {
       result = num1.minus(num2).toFixed();
       break;
     case '%':
-      result = num1.div(100).toFixed();
+      result = num1.div(Big(100)).toFixed();
       break;
     case '+/-':
       result = num1.times(minusOne).toFixed();
       break;
     default:
+      result = '0';
       break;
   }
 
