@@ -18,13 +18,16 @@ export default function calculate(calcData, buttonName) {
 
   operators.forEach(operator => {
     if (buttonName === operator && (total || next) && total !== 'E') {
-      operation = buttonName;
-      if (total !== null && next !== null) {
+      if (total !== null && next !== null && operation) {
         total = operate(total, next, operation);
+        operation = buttonName;
         next = null;
       } else if (next) {
         total = next;
+        operation = buttonName;
         next = null;
+      } else {
+        operation = buttonName;
       }
     }
   });
