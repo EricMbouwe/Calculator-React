@@ -38,12 +38,14 @@ export default function calculate(calcData, buttonName) {
   if (buttonName === '%' || buttonName === '+/-') {
     if (total) {
       total = operate(total, next, buttonName);
+      next = null;
     } else if (next) {
       total = operate(next, next, buttonName);
+      next = null;
     }
   }
 
-  if (buttonName === '.') {
+  if (buttonName === '.' && next) {
     next = `${next}.`;
   }
 
@@ -51,7 +53,9 @@ export default function calculate(calcData, buttonName) {
     if (operation !== null && next) {
       total = operate(total, next, operation);
       next = null;
+      operation = null;
     } else if (next !== null) {
+      operation = null;
       total = next;
       next = null;
     }
