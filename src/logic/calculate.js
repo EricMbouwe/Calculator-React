@@ -7,7 +7,7 @@ export default function calculate(calcData, buttonName) {
   const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
   numbers.forEach(number => {
-    if (buttonName === number) {
+    if (buttonName === number && total !== 'E') {
       if (next) {
         next += number;
       } else {
@@ -17,14 +17,17 @@ export default function calculate(calcData, buttonName) {
   });
 
   operators.forEach(operator => {
-    if (buttonName === operator && (total || next)) {
-      operation = buttonName;
-      if (total !== null && next !== null) {
+    if (buttonName === operator && (total || next) && total !== 'E') {
+      if (total && next && operation) {
         total = operate(total, next, operation);
+        operation = buttonName;
         next = null;
       } else if (next) {
         total = next;
+        operation = buttonName;
         next = null;
+      } else {
+        operation = buttonName;
       }
     }
   });
@@ -35,7 +38,7 @@ export default function calculate(calcData, buttonName) {
     operation = null;
   }
 
-  if (buttonName === '%' || buttonName === '+/-') {
+  if ((buttonName === '%' || buttonName === '+/-') && total !== 'E') {
     if (total) {
       total = operate(total, '0', buttonName);
       next = null;
@@ -50,11 +53,11 @@ export default function calculate(calcData, buttonName) {
   }
 
   if (buttonName === '=') {
-    if (operation !== null && next) {
+    if (operation && next) {
       total = operate(total, next, operation);
       next = null;
       operation = null;
-    } else if (next !== null) {
+    } else if (next) {
       operation = null;
       total = next;
       next = null;
